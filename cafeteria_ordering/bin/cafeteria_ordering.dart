@@ -16,10 +16,27 @@ class OrderItem {
   OrderItem(this.menuItem, this.quantity);
 }
 
-// Exception class OutOfOperatingHoursException implements Exception {
-//   String cause;
-//   OutOfOperatingHoursException(this.cause);
-// }
+class OutOfStockException implements Exception {
+  final String message;
+  OutOfStockException(this.message);
+  @override
+  String toString() => "OutOfStockException: $message";
+}
+
+class InvalidOrderException implements Exception {
+  final String message;
+  InvalidOrderException(this.message);
+  @override
+  String toString() => "InvalidOrderException: $message";
+}
+
+abstract class MenuFetcher {
+  Future<MenuItem?> fetch(String id);
+}
+
+abstract class OrderUpdater {
+  Future<void> updateStock(String id, int change);
+}
 
 void main(){
 
@@ -66,7 +83,4 @@ void main(){
       print("${item.id}. ${item.name} - Rp${item.price}");
     }
   }
-  
-
-
 }
