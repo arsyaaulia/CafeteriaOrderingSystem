@@ -66,7 +66,6 @@ void main(){
         print('Pilihan tidak valid, silakan coba lagi.\n');
       }
     }
-    
 
     var menuSpesial = [
       MenuItem("1", "Nasi Goreng Merah", 15000, 10),
@@ -82,5 +81,7 @@ void main(){
     for (var item in menuSpesial) {
       print("${item.id}. ${item.name} - Rp${item.price}");
     }
+    stdout.write('Masukkan ID menu yang ingin dipesan: ');
+    
   }
 }
